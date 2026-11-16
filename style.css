@@ -1,0 +1,421 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+    direction: rtl;
+}
+
+body {
+    background-color: rgb(0, 0, 39);
+    color: white;
+    line-height: 1.7;
+}
+
+header {
+
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: rgba(15, 23, 42, 0.55);
+    z-index: 1000;
+    padding: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid white;
+
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: lightblue;
+    text-decoration: none;
+}
+
+nav ul {
+list-style: none;
+display: flex;
+gap: 2rem;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+}
+nav a:hover{
+    color: gray;
+}
+
+
+/* ===================================================
+   Hero Section
+=================================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem 2rem 3rem 2rem; /* فضای کافی زیر هدر ثابت */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+/* متن و توضیحات */
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    font-size: 0.95rem;
+    color: lightblue;
+    background: rgba(173, 216, 230, 0.1);
+    border: 1px solid rgba(173, 216, 230, 0.25);
+    border-radius: 50px;
+    backdrop-filter: blur(4px);
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1.25;
+    color: #ffffff;
+    margin: 0;
+}
+
+.hero-title .highlight {
+    color: lightblue;
+    text-shadow: 0 0 25px rgba(173, 216, 230, 0.45);
+}
+.hero-subtitle {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #94a3b8; /* خاکستری ملایم */
+    margin-top: -0.4rem;
+    letter-spacing: 0.5px;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    max-width: 540px;
+    line-height: 1.8;
+}
+
+/* دکمه‌ها */
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background-color: lightblue;
+    color: rgb(0, 0, 39);
+    box-shadow: 0 4px 15px rgba(173, 216, 230, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #93c5fd;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(173, 216, 230, 0.45);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+    border-color: lightblue;
+    color: lightblue;
+    background: rgba(173, 216, 230, 0.05);
+    transform: translateY(-2px);
+}
+
+/* آمار و شمارنده‌ها */
+.hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: lightblue;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* بخش تصویر و آواتار */
+.hero-image {
+    flex: 0 0 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.avatar-glow {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(173, 216, 230, 0.35) 0%, transparent 70%);
+    filter: blur(25px);
+    z-index: 1;
+}
+
+.avatar-box {
+    position: relative;
+    z-index: 2;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.7);
+    border: 2px solid rgba(173, 216, 230, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.avatar-box:hover {
+    transform: scale(1.03);
+    border-color: lightblue;
+}
+
+.avatar-box img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.section{
+           padding: 6rem 5% 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+}
+.container{
+
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.section-title{
+    text-align: center;
+    font-size: 2.2rem;
+     font-weight: 700;
+     color: white;
+     margin-bottom: 50px;
+}
+.project-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px, 1fr));
+    gap: 30px;
+}
+.project-card{
+    background-color: black;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.project-card-image{
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+.project-card-image img{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    padding: 2rem 1.2rem;
+
+
+}
+.contact-links{
+    display: flex;
+    gap: 2rem;
+
+
+}
+.contact-links a{
+    border: 1px solid #288cff63 ;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: large;
+    color: white;
+    border-radius: 10px;
+    background-color: #005A9C;
+}
+.btn {
+    border: 1px solid #288cff63;
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    background-color: #1B365D;
+}
+
+.tags{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+
+
+}
+.tags span{
+     display: inline-block;
+    background-color: rgba(20, 217, 231, 0.63);
+    border-radius: 13px;
+    padding: 8px 4px;
+}
+.project-card-content{
+  background-color: rgba(13, 4, 84, 0.745);
+  height: 130px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+gap: 0.7rem;
+color: rgba(255, 255, 255, 0.768);
+padding-right: 10px;
+
+}
+.card-title{
+    color: rgb(43, 40, 239);
+    font-weight: bold;
+    font-size: large;
+}
+#about{
+    min-height: auto;
+}
+.content-about{
+    color: white;
+    text-align: center;
+    background-color: #020043;
+    margin-top: 0 auto;
+    padding: 50px;
+    border-radius: 10px;
+}
+.skills-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 2rem;
+}
+.skills-box{
+    border-bottom: solid #005A9C;
+    padding: 2rem;
+
+
+}
+.skills-box p{
+    margin-top: 5px;
+}
+
+/* ===================================================
+   Responsive Breakpoints
+=================================================== */
+@media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .hero-content {
+        align-items: center;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .hero-image {
+        flex: unset;
+    }
+
+    .avatar-box {
+        width: 220px;
+        height: 220px;
+    }
+
+    .avatar-glow {
+        width: 250px;
+        height: 250px;
+    }
+}
+.footer{
+    text-align: center;
+    color: #94a3b8;
+}
