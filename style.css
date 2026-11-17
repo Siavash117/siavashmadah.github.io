@@ -7,7 +7,17 @@
     direction: rtl;
 }
 
+html {
+    scroll-padding-top: 7rem;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
 body {
+    overflow-wrap: anywhere;
     background-color: rgb(0, 0, 39);
     color: white;
     line-height: 1.7;
@@ -78,6 +88,7 @@ nav a:hover{
 
 /* متن و توضیحات */
 .hero-content {
+    min-width: 0;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -267,7 +278,7 @@ nav a:hover{
 }
 .project-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     gap: 30px;
 }
 .project-card{
@@ -299,7 +310,10 @@ nav a:hover{
 }
 .contact-links{
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
 
 
 }
@@ -322,7 +336,8 @@ nav a:hover{
 
 .tags{
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     justify-content: center;
 
 
@@ -335,13 +350,14 @@ nav a:hover{
 }
 .project-card-content{
   background-color: rgba(13, 4, 84, 0.745);
-  height: 130px;
+  flex: 1;
+  min-width: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
 gap: 0.7rem;
 color: rgba(255, 255, 255, 0.768);
-padding-right: 10px;
+padding: 1rem;
 
 }
 .card-title{
@@ -356,13 +372,14 @@ padding-right: 10px;
     color: white;
     text-align: center;
     background-color: #020043;
-    margin-top: 0 auto;
-    padding: 50px;
+    margin: 0 auto;
+    width: 100%;
+    padding: clamp(1.25rem, 5vw, 50px);
     border-radius: 10px;
 }
 .skills-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
     gap: 2rem;
 }
 .skills-box{
@@ -379,6 +396,49 @@ padding-right: 10px;
    Responsive Breakpoints
 =================================================== */
 @media (max-width: 900px) {
+    html {
+        scroll-padding-top: 1rem;
+    }
+
+    header {
+        position: static;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.25rem 1rem;
+    }
+
+    nav a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        font-size: 1rem;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 3rem 1.25rem;
+    }
+
+    .section {
+        min-height: auto;
+        padding: 3rem 5%;
+    }
+
+    .section-title {
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+        margin-bottom: 2rem;
+    }
+
     .hero-container {
         flex-direction: column-reverse;
         text-align: center;
@@ -418,4 +478,25 @@ padding-right: 10px;
 .footer{
     text-align: center;
     color: #94a3b8;
+}
+
+@media (max-width: 480px) {
+    .logo { font-size: 1.6rem; }
+    .hero-title { font-size: clamp(1.7rem, 7vw, 2.2rem); }
+    .hero-subtitle { font-size: 1.15rem; }
+    .hero-description { font-size: 1rem; }
+    .hero-image { width: 100%; }
+    .avatar-box { width: min(220px, 100%); height: auto; aspect-ratio: 1; }
+    .avatar-glow { width: min(250px, 100%); height: auto; aspect-ratio: 1; }
+    .hero-actions { width: 100%; flex-direction: column; }
+    .hero-actions .btn { width: 100%; }
+    .project-container, .skills-container { gap: 1rem; }
+    .skills-box { padding: 1.25rem; }
+    .contact-container { padding: 1rem 0; }
+    .contact-links { flex-direction: column; }
+    .contact-links a { width: 100%; padding: 0.75rem 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto; transition: none; }
 }
